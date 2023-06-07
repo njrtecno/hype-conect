@@ -1,0 +1,47 @@
+<?php
+
+/** @var \Magento\Newsletter\Block\Subscribe $block */
+?>
+<div class="block newsletter">
+    <div class="content-newsletter">
+        <div class="info-newsletter">
+            <img src="<?= $block->escapeUrl($block->getViewFileUrl('images/fa-envelope-2.svg'))?>" alt="logo-envelope">
+            <div class="info-register">
+                <span class="msg-first">Cadastre-se em nossa</span>
+                <span class="msg-secund">Newsletter</span>
+            </div>
+            <div class="info-promotion">
+                <span>Ganhe</span>
+                <span class="green">10% de desconto</span>
+                <br />
+                <span>na primeira compra</span>
+            </div>
+        </div>
+        <form class="form-subscribe" novalidate action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>" method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}' id="newsletter-validate-detail">
+            <div class="content-send">
+                <div class="field email">
+                    <div class="control">
+                        <input name="email" type="email" id="newsletter" placeholder="Digite seu email" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}" />
+                    </div>
+                </div>
+                <div class="field name">
+                    <div class="control">
+                        <input name="name" type="text" id="name" placeholder="Digite seu nome" data-validate="{required:true}" />
+                        <button class="action subscribe primary" title="<?= $block->escapeHtmlAttr(__('Send')) ?>" type="submit" aria-label="Send">
+                            <span>Enviar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "newsletter-validate-detail"
+            }
+        }
+    }
+</script>

@@ -1,0 +1,10 @@
+<div class="bestseller">
+    <h2>mais vendidos</h2>
+    <?= $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('best-sellers')->toHtml(); ?>
+</div>
+
+<div class="banner">
+    <div class="banner-block">
+        <img src="<?= $block->escapeUrl($block->getViewFileUrl('images/banner-exemplo.png'))?>" alt="image">
+    </div>
+</div> 

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+    <referenceContainer name="page.wrapper">
+        <block class="Magento\Framework\View\Element\Template" name="banner" template="Magento_Theme::home/banners/banner-home.phtml" after="header.container"/>
+    </referenceContainer>
+    <referenceContainer name="content">
+      <container htmlClass="main-banner" htmlId="main-banner" name="main.banner" htmlTag="div" before="-">
+        <block class="Magento\Framework\View\Element\Template" name="advantage" template="Magento_Theme::home/banners/advantage-banner.phtml" after="banner"/> 
+      </container>
+
+      <container htmlClass="best-sellers" htmlId="best-sellers" name="best.sellers" htmlTag="div" after="main.banner">
+        <block class="Magento\Framework\View\Element\Template" name="best-sellers" template="Magento_Theme::home/best-sellers.phtml" before="-"/>
+      </container>
+
+      <container htmlClass="new-products" htmlId="new-products" name="new-products" htmlTag="div" after="best.sellers">
+        <block class="Magento\Framework\View\Element\Template" name="news" template="Magento_Theme::home/news.phtml" before="-"/>
+      </container>
+
+      <container htmlClass="promotions-home" htmlId="promotions-home" name="promotions-home" htmlTag="div" after="new-products">
+        <block class="Magento\Framework\View\Element\Template" name="promotions" template="Magento_Theme::home/promotions.phtml" before="-"/>
+      </container>
+    </referenceContainer>
+
+    <referenceBlock name="cms_page" remove="true"/>
+    <referenceBlock name="page.main.title" display="false" />
+    <referenceBlock name="catalog.compare.link" remove="true" />
+    <referenceBlock name="catalog.compare.sidebar" remove="true" />
+  </body>
+</page>

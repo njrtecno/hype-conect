@@ -1,0 +1,172 @@
+//
+//  Common
+//  _____________________________________________
+& when (@media-common =true) {
+    .minicart-wrapper {
+        .contet-minicart {
+            .lib-vendor-prefix-display();
+  
+           .bag-icon {
+                &:before {
+                    content: "";
+                    width: 35px;
+                    height: 35px;
+                    display: block;
+                    padding: 0 10px;
+                    background-size: auto;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-image: url("@{baseDir}images/sacola.svg");
+                }
+            }
+  
+            .showcart,
+            .showcart.active {
+                width: 100px;
+                .lib-vendor-prefix-display();
+                .lib-vendor-prefix-flex-direction (column);
+        
+                &:before {
+                    .lib-visually-hidden();
+                }
+        
+                .counter {
+                    margin: 0 !important;
+                    text-align: start !important;
+                    background-color: transparent !important;
+                }
+            }
+        }
+
+        .header-minicart {
+            line-height: 40px;
+            height: 40px;
+            background: @blue1;
+            text-align: center;
+            .action.close {
+                height: 40px;
+                left: 20px;
+                &::before {
+                    font-size: 16px;
+                    line-height: 40px;
+                    color: @green1;
+                }
+            }
+            span {    
+                font-size: 16px;
+                line-height: 16px;
+                font-weight: 600;
+                color: @green1;
+                text-transform: uppercase;
+                .qty {
+                    &::before {
+                        content: '(';
+                    }
+                    &::after {
+                        content: ')';
+                    }
+                }
+            }   
+        }
+
+        .block-minicart {
+            transform: translateX(100%);
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            left: auto;
+            width: 340px;
+            max-width: 100%;
+            min-width: 0px;
+            z-index: 999;
+            &:before,
+            &::after {
+                display: none;
+            }
+        }
+        &.active {
+            &:after {
+                opacity: 0.7;
+                visibility: visible;
+                content: "";
+                display: block;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 999;
+                background-color: #000;
+            }
+            .block-minicart {
+                margin: 0;
+                padding: 0;
+                border: none;            
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(0%);
+                z-index: 9999;
+            }
+        }
+        .block-content {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 25px 20px;
+            
+            .subtotal {
+                border-top: 1px solid #d0d0d0;
+                margin: 20px 10px 0;
+                padding: 20px 10px 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between; 
+
+                .label {
+                    span {
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 16px;
+                        color: @bluecart;
+                    }
+                }
+            }
+            .actions {
+                > .primary {
+                    .action.primary {
+                        height: 40px;
+                        font-size: 16px;
+                        line-height: 16px;
+                        text-transform: uppercase;
+                        background: @green1;
+                        color: @bluecart;
+                        border: none;
+                    }
+                }
+            }
+            .minicart-items {
+                .product-item {
+                    border-bottom: 1px solid #d0d0d0;
+                    &:not(:first-child) {
+                        border-top: none;
+                    }
+                    .product-item-name {
+                        a {
+                            color: #666;
+                            font-weight: normal;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .minicart-items-wrapper {
+                height: 320px!important;
+                margin-bottom: 50px;
+                border: none;
+            }
+        }
+    }
+}
+  

@@ -1,0 +1,61 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/hc-logo.png</argument>
+                <argument name="logo_width" xsi:type="null"/>   
+                <argument name="logo_img_width" xsi:type="number">202</argument>
+                <argument name="logo_img_height" xsi:type="number">180</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header.container">
+            <container name="block.customer" htmlTag="div" htmlClass="block-customer"></container>
+            <block class="Magento\Theme\Block\Html\Footer" name="contact-header" template="Magento_Theme::html/header/contact-us.phtml" before="minicart"/>
+        </referenceContainer>
+        
+
+
+        <!-- Header -->
+        <referenceBlock name="header" remove="true"/> 
+        <referenceBlock name="currency" remove="true"/>
+        <referenceBlock name="wish-list-link" remove="true"/>
+        <referenceBlock name="my-account-link" remove="true" />
+        <referenceBlock name="header.panel.wrapper" remove="true"/>
+
+        <move element="minicart" destination="header-wrapper" after="-"/>
+        <move element="top.links" destination="block.customer" after="-"/>
+        <move element="block.customer" destination="header-wrapper" after="logo"/>
+        <move element="top.search" destination="header-wrapper" after="top.links"/>
+        <move element="contact-header" destination="header-wrapper" before="minicart"/> 
+        <move element="navigation.sections" destination="header.container" />
+
+
+
+        <!--Footer-->
+
+        <referenceContainer name="footer-container">
+            <container name="top.footer" as="top.footer" label="After footer start" htmlTag="div" htmlClass="top-footer" before="-" />
+        </referenceContainer>
+
+        <referenceContainer name="footer-container">
+            <container name="main.footer" label="Main Footer" htmlTag="div" htmlClass="main-footer" before="b2b.payment.shipping.certificate">
+                <container name="info.footer" label="Info Footer" htmlTag="div" htmlClass="info-footer" >
+                    <block class="Magento\Theme\Block\Html\Footer" name="footer-description" template="Magento_Theme::html/footer/footer-description.phtml"/>
+                    <block class="Magento\Theme\Block\Html\Footer" name="footer-links" template="Magento_Theme::html/footer/footer-links.phtml" />
+                    <block class="Magento\Theme\Block\Html\Footer" name="footer-social" template="Magento_Theme::html/footer/footer-social.phtml" />
+                </container>
+            </container>
+            <container name="b2b.payment.shipping.certificate" htmlTag="div" htmlClass="b2b-transactions footer content">
+                <block class="Magento\Framework\View\Element\Template" name="b2b.block.payment.shipping.certificate" template="Magento_Theme::html/footer/b2b-transactions.phtml" before="copyright"/>
+            </container>
+            <container name="b2b.footer" htmlTag="div" htmlClass="b2b-footer footer content">
+                <block class="Magento\Framework\View\Element\Template" name="b2b.block.footer" template="Magento_Theme::html/footer/b2b-footer.phtml" after="-"/>
+            </container>
+        </referenceContainer>
+        <move element="copyright" destination="footer-container" before="b2b.footer"/>
+        <move element="form.subscribe" destination="top.footer" after="-"/>
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="footer_links" remove="true"/>
+    </body>
+</page>

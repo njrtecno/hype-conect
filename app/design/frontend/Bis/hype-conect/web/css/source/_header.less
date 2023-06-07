@@ -1,0 +1,147 @@
+//
+//  Common
+//  _____________________________________________
+& when (@media-common =true) {
+    .fixed-header {
+        top: 0;
+        z-index: 999;
+        position: fixed;
+        transition: all .5s;
+    }
+    
+    body.fixed-header-padding {
+      padding-top: 60px;
+    }
+  
+    .page-header {
+        width: 100%;
+        z-index: 1000;
+        background-color: @blue1;
+        .lib-vendor-prefix-display();
+        flex-direction: column;
+        margin-bottom: 0;
+        
+        
+        .nav-sections {
+            margin-bottom: 0;
+            background: @blue2;
+            .navigation {
+                background-color: @blue2;
+                ul.ui-menu {
+                    text-align: center;
+                }
+                .level0 {
+                    > .level-top {
+                        color: @green1;
+                    } 
+                }
+            }
+        }
+        .header.content {
+            width: 100%;
+            padding: 0 20px 0;
+            .lib-vendor-prefix-display();
+            .lib-vendor-box-align(center);
+            .mixin_justify_content_space_between();
+  
+            .logo {
+                margin: 0;
+                top: 35px;
+                width: 202px;
+                z-index: 999;
+                height: 163px;
+                position: relative;
+            }
+  
+            .block-customer {
+                height: 40px;
+                width: 160px;
+                .lib-vendor-prefix-display();
+        
+                &:before {
+                    content: "";
+                    width: 35px;
+                    display: block;
+                    padding: 0 10px;
+                    background-size: auto;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-image: url("@{baseDir}images/user.svg");
+                }
+        
+                .links {
+                    padding: 0;
+                    width: 200px;
+                    list-style: none;
+                    .lib-vendor-prefix-display();
+                    .lib-vendor-prefix-flex-direction (column);
+        
+                    li {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+  
+            .block-search {
+                width: 380px;
+        
+                .block-content {
+                    .control {
+                    width: 100%;
+                    padding: 0;
+        
+                    #search {
+                        border-radius: 5px
+                    }
+        
+                    .nested {
+                        .lib-visually-hidden();
+                    }
+                    }
+                }
+            }
+  
+            .actions {
+                .search {
+                    &:before {
+                    color: @blue4;
+                    transform: rotate(90deg)
+                    }
+                }
+            }
+  
+            .contact-header {
+                .lib-vendor-prefix-display();
+    
+                .content-icon {
+                    &:before {
+                    content: "";
+                    width: 30px;
+                    height: 43px;
+                    display: block;
+                    padding: 0 10px;
+                    background-size: auto;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-image: url("@{baseDir}images/whatsapp.svg");
+                    }
+                }
+    
+                .content-msg {
+                    .lib-vendor-prefix-display();
+                    .lib-vendor-prefix-flex-direction (column);
+                }
+            }
+
+            .msg-white {
+                color: @white;
+                font-weight: @font-weight__bold;
+            }
+            .msg-green {
+                color: @green1;
+                font-weight: @font-weight__bold;
+            }
+        }
+    }
+}
+  

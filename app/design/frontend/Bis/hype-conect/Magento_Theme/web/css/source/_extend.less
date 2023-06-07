@@ -1,0 +1,277 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+@import "_banner-home.less";
+@import "_advantage-banner.less";
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .page-main {
+        .page.messages {
+            display: none;
+        }
+    }
+    
+    .bestseller h2,
+    .new-products h2,
+    .promotions-home h2 {
+        font-size: @font-size-xxbig;
+        text-align: center;
+        text-transform: uppercase;
+        color: @blue2;
+    }
+
+    .copyright {
+        background-color: #fff;
+        color: #333;
+        font-family: verdana, sans-serif;
+        font-size: 12px;
+        text-align: center;
+        margin: 16px 0;
+        padding: 0;
+    }
+    .footer.content {
+        &.b2b-footer {
+            font-size: 12px;
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid #ddd;
+            margin: 0 auto;
+            max-width: 1280px;
+            
+            p {
+                margin-bottom: 20px;
+            }
+        }
+        .footer-icons {
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+    }
+
+
+    .main-footer {
+        background-color: #141628;
+        padding: 40px 0;
+
+        .info-footer {
+            max-width: 1280px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-description {    
+            .content-description {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                p {
+                    color: #fff;
+                    letter-spacing: -1.0px;
+                }
+            
+            }
+        }
+
+        .footer-links {
+
+            .block {
+                flex: 40%;
+                margin-bottom: 10px;
+                h4 {
+                    margin: 0 0 10px;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    color: #86b24b;
+                }
+                ul {
+                    list-style: none;
+                    padding: 0px;
+                    li {
+                        a {
+                            color: #fff;
+                            text-decoration: none;
+                        }
+                    }
+                }
+                &.contact {
+                    .contact-us {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        margin-bottom: 25px;
+                        align-items: center;
+                        justify-content: flex-start;
+                        img {
+                            width: 20px;
+                            max-height: 15px;
+                            margin-right: 10px;
+                        }
+                        span {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-social {
+            .social-media {
+                .social {
+                    img {
+                        width: 40px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+}
+
+
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-footer {
+        background-color: @color-white;
+    }
+    .footer.content {
+        &.b2b-transactions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+    
+            h4 {
+                margin-bottom: 6px;
+            }
+    
+            .payment-block,
+            .shipping-block,
+            .certificate-block {
+                flex: 1 1 auto;
+                max-width: 33.33%;
+            }
+            .shipping-block {
+                margin: 0 30px;
+            }
+        }
+    }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .main-footer {
+        .info-footer {
+            max-width: 1280px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            .footer-description {
+                height: 100%;
+                display: flex;
+                text-align: justify;
+                margin-right: 0px;
+            }
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0px 4%;
+            }
+            .footer-social {
+                display: flex;
+                flex-direction: column;
+                max-width: 25%;
+            }
+        }
+    }
+        
+    .footer-description, 
+    .footer-links, 
+    .footer-social {
+        flex: 1 1 auto;
+        max-width: 33.33%;
+    }
+}
+
+//
+//  Mobile 
+//  _____________________________________________
+
+@media screen and (max-width: 1023px) {
+    .main-footer {
+        .info-footer {
+            padding-left: 20px;
+            padding-right: 20px;
+            .footer-description {
+                display: block;
+                margin-bottom: 20px;
+                .content-description {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    .store-logo {
+                        width: 202px;
+                        margin-right: 5%;
+                    }
+                    > p {
+                        width: 75%;
+                    }
+                }
+            }
+            .footer-links {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+                .block {
+                    flex: 1 1 50%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .footer.content {
+        
+        &.b2b-transactions {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            .payment-block,
+            .shipping-block,
+            .certificate-block {
+                flex: auto;
+                max-width: 100%;
+            }
+            .shipping-block {
+                margin: 0;
+            }
+            .footer-icons {
+                text-align: center;
+            }
+
+        }
+    }
+}
+

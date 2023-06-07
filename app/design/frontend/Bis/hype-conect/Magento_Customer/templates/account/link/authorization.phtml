@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @var \Magento\Customer\Block\Account\AuthorizationLink $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$dataPostParam = '';
+if ($block->isLoggedIn()) {
+  $dataPostParam = sprintf(" data-post='%s'", $block->getPostParams());
+}
+?>
+<li class="link authorization-link" data-label="<?= $escaper->escapeHtml(__('or')) ?>">
+  <a <?= /* @noEscape */ $block->getLinkAttributes() ?> <?= /* @noEscape */ $dataPostParam ?>>
+    <span class="msg-white"><?= __('Faça')?></span>
+    <span class="msg-green"><?= __('Login')?></span>
+  </a>
+</li>
+<div class="register-header-link">
+  <div class="register">
+    <a href="<?= $block->getUrl('customer/account/create/') ?>" >
+      <span class="msg-white">Ou</span>
+      <span class="msg-green">Cadastre-se</span>
+    </a>
+  </div>
+</div>
+
+<script type="text/x-magento-init">
+  {
+    "*": {
+      "Magento_Theme/js/fixed-menu": {}
+    }
+  }
+</script>
