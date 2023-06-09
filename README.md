@@ -32,6 +32,10 @@ Com isso tema será aplicado.
 ### Sobre o teste
 Acredito que é isso. consegui fazer boa parte do mesmo, acredito que esteja em 90/95%.
 Ficaram faltando alguns ajustes de responsividade e também configuração de um mega menu.
-Mesmo assim espero que seja o suficiente para avaliarem meus conhecimentos.  
 
-Qualquer duvida, ou dificuldade com a configuração do tema, me chamem
+Abaixo um link com um video curto mostrando o tema:
+https://www.loom.com/share/1826f28829dc4a6eac3fd90c97c81d61
+
+Espero que seja o suficiente para avaliarem meus conhecimentos.  
+
+Qualquer duvida, ou dificuldade com a configuração do tema, me chamem!
